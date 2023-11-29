@@ -1,0 +1,118 @@
+{"entity":"1736498884964707432","entityType":"DIGITAL_MASTER","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"default/audio64","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/audio64","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio96","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/audio96","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio128","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/audio128","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+
+
+
+{"entity":"default/video700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video700","bitrate":696,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video1700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video1700","bitrate":1700,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video450","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video450","bitrate":448,"width":270,"height":480,"accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"default/video1200","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video1200","bitrate":1206,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+
+{"entity":"default/video2000","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video2000","bitrate":2003,"width":720,"height":1280,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video900","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","dynamicRenditionId":"default/video900","bitrate":897,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"86041fcb-eb25-4030-acdc-6d6dd727a6cf","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"poster","entityType":"ASSET","version":"1","action":"CREATE","jobId":"54e24ed5-80ab-42c0-856d-019ea41df8b1","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"54e24ed5-80ab-42c0-856d-019ea41df8b1","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"54e24ed5-80ab-42c0-856d-019ea41df8b1","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"thumbnail","entityType":"ASSET","version":"1","action":"CREATE","jobId":"be91de07-e434-4de8-856d-fe6be65e542c","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"be91de07-e434-4de8-856d-fe6be65e542c","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"be91de07-e434-4de8-856d-fe6be65e542c","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"2678a3b3-dec5-4612-90f9-1d11251ff22f","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"62115b53-f4c6-4223-a568-7dd86ec93140","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+
+{"entity":"id-captions-ID","entityType":"ASSET","version":"1","action":"CREATE","jobId":"2678a3b3-dec5-4612-90f9-1d11251ff22f","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"2678a3b3-dec5-4612-90f9-1d11251ff22f","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"62115b53-f4c6-4223-a568-7dd86ec93140","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"id-captions-ID","entityType":"ASSET","version":"1","action":"CREATE","jobId":"62115b53-f4c6-4223-a568-7dd86ec93140","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"1736498884964707432","entityType":"DIGITAL_MASTER","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"default/audio64","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/audio64","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio96","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/audio96","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio128","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/audio128","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+
+
+
+{"entity":"default/video700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video700","bitrate":692,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video450","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video450","bitrate":447,"width":270,"height":480,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video1200","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video1200","bitrate":1189,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video900","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video900","bitrate":893,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video1700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video1700","bitrate":1687,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+
+
+
+
+
+{"entity":"default/video2000","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","dynamicRenditionId":"default/video2000","bitrate":1978,"width":720,"height":1280,"accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"1736498884964707432","entityType":"TITLE","version":"1","action":"CREATE","jobId":"19f1341e-f207-438a-af2b-2ccc96d98738","videoId":"1736498884964707432","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736498884964707432'
+{"entity":"1736500461354045604","entityType":"DIGITAL_MASTER","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"default/video700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video700","bitrate":706,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio64","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/audio64","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio96","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/audio96","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video450","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video450","bitrate":457,"width":270,"height":480,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/audio128","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/audio128","language":"en","variant":"main","accountId":"6281094274001","status":"SUCCESS"}
+
+
+
+{"entity":"default/video1700","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video1700","bitrate":1704,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"default/video1200","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video1200","bitrate":1204,"width":540,"height":960,"accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"1736500461354045604","entityType":"TITLE","version":"1","action":"PUBLISH","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video900","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video900","bitrate":910,"width":360,"height":640,"accountId":"6281094274001","status":"SUCCESS"}
+{"entity":"default/video2000","entityType":"DYNAMIC_RENDITION","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","dynamicRenditionId":"default/video2000","bitrate":1996,"width":720,"height":1280,"accountId":"6281094274001","status":"SUCCESS"}
+
+{"entity":"1736500461354045604","entityType":"TITLE","version":"1","action":"CREATE","jobId":"9c19c5fd-8a29-433c-8ee8-6382a597d6da","videoId":"1736500461354045604","accountId":"6281094274001","status":"SUCCESS"}
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736500461354045604'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736500461354045604'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736500461354045604'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736500461354045604'
+
+UPDATE sv_videos SET `ingest_status_id`='finished' WHERE `video_id`='1736500461354045604'
