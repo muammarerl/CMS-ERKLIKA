@@ -22,6 +22,7 @@ class Payment extends CI_Controller {
 		error_reporting(0);
 		$this->load->library('flexigrid');
     	$this->load->helper('flexigrid');
+		$this->load->model('Chart_model');
 	}
 	
 	function index()
@@ -34,6 +35,78 @@ class Payment extends CI_Controller {
                 $data['type']='View';
 		$data['content'] = 'contents/'.$this->utama.'/view';
 		$data['js_grid']=$this->get_column();
+		// Chart Payment
+		$resultPayment = $this->Chart_model->getPaymentData();
+		$dataPointsPayment = [];
+		foreach ($resultPayment as $row) {
+		$dataPointsPayment[] = [
+				'date' => $row->date,
+				'value' => $row->count
+		];
+		}
+		$jsonChartDataPayment = json_encode($dataPointsPayment);
+		$data['jsonChartDataPayment'] = $jsonChartDataPayment;
+
+		// pie chart 
+		$count_consumer_1 = $this->Chart_model->getCountByConsumer('retail');
+		$count_consumer_2 = $this->Chart_model->getCountByConsumer('school');
+		$count_actv_1 = $this->Chart_model->getCountByActivation('sub');
+		$count_actv_2 = $this->Chart_model->getCountByActivation('voc');
+				$data['count_consumer_1'] = $count_consumer_1;
+				$data['count_consumer_2'] = $count_consumer_2;
+				$data['count_actv_1'] = $count_actv_1;
+				$data['count_actv_2'] = $count_actv_2;
+
+		$count_pending = $this->Chart_model->countByTransactionStatus('pending');
+		$count_settlement = $this->Chart_model->countByTransactionStatus('settlement');
+		$count_capture = $this->Chart_model->countByTransactionStatus('capture');
+		$count_expired = $this->Chart_model->countByTransactionStatus('expired');
+		$count_cancel = $this->Chart_model->countByTransactionStatus('cancel');
+		$count_deny = $this->Chart_model->countByTransactionStatus('deny');
+		$count_refund = $this->Chart_model->countByTransactionStatus('refund');
+				$data['count_pending'] = $count_pending;
+				$data['count_settlement'] = $count_settlement;
+				$data['count_capture'] = $count_capture;
+				$data['count_expired'] = $count_expired;
+				$data['count_cancel'] = $count_cancel;
+				$data['count_deny'] = $count_deny;
+				$data['count_refund'] = $count_refund;
+
+
+		$count_apple = $this->Chart_model->countByPlatform('apple');
+		$count_midtrans = $this->Chart_model->countByPlatform('midtrans');
+		$count_google = $this->Chart_model->countByPlatform('google');
+				$data['count_apple'] = $count_apple;
+				$data['count_midtrans'] = $count_midtrans;
+				$data['count_google'] = $count_google;
+
+		$data['payment_details'] = $this->Chart_model->getPaymentAll();
+
+		$data['settlement_details'] = $this->Chart_model->getPaymentSettlement();
+		$data['pending_details'] = $this->Chart_model->getPaymentPending();
+		$data['expired_details'] = $this->Chart_model->getPaymentExpired();
+		$data['cancel_details'] = $this->Chart_model->getPaymentCancel();
+		$data['refound_details'] = $this->Chart_model->getPaymentRefound();
+
+		// $data['transaction_counts'] = $this->Payment_model->countByTransactionStatus();
+
+		// bar chart 
+		// $resultStatus = $this->Chart_model->getStatusTransaction();
+        //                 $dataPointsStatus = [];
+        //                 foreach ($resultStatus as $row) {
+        //                         $dataPointsStatus[] = [
+        //                         'country' => $row->transaction_status,
+        //                         'visits' => $row->total_status
+        //                         ];
+        //                 }
+        //                 $jsonChartDataStatus = json_encode($dataPointsStatus);
+        //                 $data['jsonChartDataStatus'] = $jsonChartDataStatus;
+
+		$data['payment_counts'] = $this->Chart_model->getCountPerId();
+        
+        
+
+
 		
 		$this->load->view('layout/main',$data);
 	}

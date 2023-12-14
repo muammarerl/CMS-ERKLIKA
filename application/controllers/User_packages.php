@@ -21,6 +21,7 @@ class User_packages extends CI_Controller {
 		error_reporting(0);
 		$this->load->library('flexigrid');
     	$this->load->helper('flexigrid');
+		$this->load->model('Chart_model');
 	}
 	
 	function index()
@@ -33,8 +34,61 @@ class User_packages extends CI_Controller {
                 $data['type']='View';
 		$data['content'] = 'contents/'.$this->utama.'/view';
 		$data['js_grid']=$this->get_column();
+		$data['userPackageCounts'] = $this->Chart_model->getUsersWithPackageCount();
+		$data['userTotalPrices'] = $this->Chart_model->getUsersWithTotalPrice();
+		$data['packages'] = $this->Chart_model->getPackageWithTotalPriceSchool();
+
+		// top package 
+		$resultPackages = $this->Chart_model->getPackageWithTotalPrice();
+                        $dataPointsPackages = [];
+                        foreach ($resultPackages as $row) {
+                                $dataPointsPackages[] = [
+                                'country' => $row->name,
+                                'visits' => $row->total_package_id
+                                ];
+                        }
+                        $jsonChartDataPackages = json_encode($dataPointsPackages);
+                        $data['jsonChartDataPackages'] = $jsonChartDataPackages;
+		// pie chart 
+		$count_consumer_1 = $this->Chart_model->getCountByConsumer('retail');
+		$count_consumer_2 = $this->Chart_model->getCountByConsumer('school');
+		$count_actv_1 = $this->Chart_model->getCountByActivation('sub');
+		$count_actv_2 = $this->Chart_model->getCountByActivation('voc');
+				$data['count_consumer_1'] = $count_consumer_1;
+				$data['count_consumer_2'] = $count_consumer_2;
+				$data['count_actv_1'] = $count_actv_1;
+				$data['count_actv_2'] = $count_actv_2;
+
+		// table 
+        // $data['user_packages'] = $this->Chart_model->getPackageData();
 		
+		// table 
+        $data['user_packages'] = $this->Chart_model->getAllUserPackages();
+
+		$count_pending = $this->Chart_model->countByTransactionStatus('pending');
+		$count_settlement = $this->Chart_model->countByTransactionStatus('settlement');
+		$count_capture = $this->Chart_model->countByTransactionStatus('capture');
+		$count_expired = $this->Chart_model->countByTransactionStatus('expired');
+		$count_cancel = $this->Chart_model->countByTransactionStatus('cancel');
+		$count_deny = $this->Chart_model->countByTransactionStatus('deny');
+		$count_refund = $this->Chart_model->countByTransactionStatus('refund');
+				$data['count_pending'] = $count_pending;
+				$data['count_settlement'] = $count_settlement;
+				$data['count_capture'] = $count_capture;
+				$data['count_expired'] = $count_expired;
+				$data['count_cancel'] = $count_cancel;
+				$data['count_deny'] = $count_deny;
+				$data['count_refund'] = $count_refund;
+
+		$data['packages'] = $this->Chart_model->getTopPackages();
+          
+
+        		
 		$this->load->view('layout/main',$data);
+	}
+	public function getAllUserPackages() {
+        $data = $this->Chart_model->getAllUserPackages();
+        echo json_encode(["data" => $data]);
 	}
         function listcol(){
             
@@ -372,22 +426,10 @@ class User_packages extends CI_Controller {
 			$package=rawurldecode($this->input->get('package'));
 			$status=rawurldecode($this->input->get('status'));
 			
-			/*if(!empty($consumer))$this->db->where('a.consumer',$consumer);
-			if(!empty($method)){
-				if($method=='midtrans'){
-					$this->db->where('a.platform',$method);
-				}else{
-					$this->db->where("a.platform !='midtrans'");
-				}
-			}
-			if(!empty($start)) $this->db->where('FROM_UNIXTIME(a.createdAt) >=', $start);
-			if(!empty($end)) $this->db->where('FROM_UNIXTIME(a.createdAt) <=', $end);
-			$this->db->select("a.id idnya,a.*,b.name package_,FORMAT(total_amount,0) AS total_amount_,FORMAT(payable_amount,0) AS payable_amount_,FROM_UNIXTIME(a.transaction_time) as transaction_time_,FROM_UNIXTIME(a.settlement_time) as settlement_time_,FROM_UNIXTIME(a.createdAt) as createdAt_",false)->from("$this->utama a");
-			$this->db->join("packages b","a.package_id=b.id","left");
-			*/
 			$content=$this->get_flexigrid($email,$package,$status,false);
+			// $content=$this->getAllUserPackages();
 	
-			$data=$content['records'];
+			$data=$content['data'];
 			$spreadsheet = new Spreadsheet();
 			$sheet = $spreadsheet->getActiveSheet();
 			// Buat sebuah variabel untuk menampung pengaturan style dari header tabel
@@ -496,6 +538,56 @@ class User_packages extends CI_Controller {
 				header('Cache-Control: max-age=0');
 				$writer = new Xlsx($spreadsheet);
 				$writer->save('php://output');
+		}
+
+		function exportexcel(){
+			// Import library PHPExcel
+require_once 'path/to/assets/PHPExcel/Classes/PHPExcel.php';
+
+if (isset($_POST['exportexcel'])) {
+    // Misalnya, $user_packages berisi data yang ingin diekspor dari tabel
+    $user_packages = $this->Chart_model->getAllUserPackages(); // Isi dengan data yang sesuai dari database atau sumber lainnya
+
+    // Inisialisasi objek PHPExcel
+    $objPHPExcel = new PHPExcel();
+
+    // Set properti-properti file Excel
+    $objPHPExcel->getProperties()->setCreator("Your Name")
+                                 ->setLastModifiedBy("Your Name")
+                                 ->setTitle("Data Export")
+                                 ->setSubject("Data Export")
+                                 ->setDescription("Data exported to Excel")
+                                 ->setKeywords("excel, data export, php")
+                                 ->setCategory("Data Export");
+
+    // Isi data ke dalam file Excel
+    $objPHPExcel->setActiveSheetIndex(0);
+    $sheet = $objPHPExcel->getActiveSheet();
+    $row = 1;
+
+    // Menulis data ke dalam file Excel
+    foreach ($user_packages as $package) {
+        $sheet->setCellValue('A'.$row, $package->full_name);
+        $sheet->setCellValue('B'.$row, $package->email);
+        $sheet->setCellValue('C'.$row, $package->school);
+        $sheet->setCellValue('D'.$row, $package->name);
+        $sheet->setCellValue('E'.$row, 'Rp ' . number_format($package->price, 0, ',', '.'));
+        $sheet->setCellValue('F'.$row, $package->createdAt);
+        $sheet->setCellValue('G'.$row, $package->expiredAt);
+        $row++;
+    }
+
+    // Set header untuk file Excel yang akan diunduh
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="data_export.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    // Simpan file Excel
+    $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+    $objWriter->save('php://output');
+    exit;
+}
+
 		}
 	
 	

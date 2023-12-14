@@ -21,6 +21,7 @@ class Redeem_history extends CI_Controller {
 		error_reporting(0);
 		$this->load->library('flexigrid');
     	$this->load->helper('flexigrid');
+    	$this->load->model('Chart_model');
 	}
 	
 	function index()
@@ -33,6 +34,24 @@ class Redeem_history extends CI_Controller {
                 $data['type']='View';
 		$data['content'] = 'contents/'.$this->utama.'/view';
 		$data['js_grid']=$this->get_column();
+
+		$resultRedeem = $this->Chart_model->getRedeemData();
+                        $dataPointsRedeem = [];
+                        foreach ($resultRedeem as $row) {
+                            $dataPointsRedeem[] = [
+                                'date' => $row->date,
+                                'value' => $row->count
+                            ];
+                        }
+                        $jsonChartDataRedeem = json_encode($dataPointsRedeem);
+                        $data['jsonChartDataRedeem'] = $jsonChartDataRedeem;
+
+		$data['top_redeem'] = $this->Chart_model->getTopRedeem();
+		$data['top_package_redeem'] = $this->Chart_model->getTopPackageRedeem();
+
+		$this->load->helper('number');
+		$data['top_redeem_total_price'] = $this->Chart_model->getTopRedeemWithTotalPrice();
+		$data['top_package_redeem_total_price'] = $this->Chart_model->getTopPackageRedeemWithTotalPrice();
 		
 		$this->load->view('layout/main',$data);
 	}

@@ -14,7 +14,7 @@ class dashboard extends CI_Controller {
 		parent::__construct();
                 error_reporting(0);
 		izin();
-                $this->load->model('chart_model','getCustomerData');
+                $this->load->model('chart_model');
 	}
 	
 	function index()
@@ -24,20 +24,97 @@ class dashboard extends CI_Controller {
 	
 	function main()
 	{
-                //$data['yearly'] = $this->chart->risk_yearly();
-                //$data['severity'] = $this->chart->risk_severity();
-                //$data['week'][0]=$today=$this->chart->risk_weekly(date('Y-m-d'));
-                
-                //for($a=1;$a<=6;$a++){
-                //    $dates=date('Y-m-d',strtotime("-$a days"));
-                //    $data['week'][$a]=$today=$this->chart->risk_weekly($dates);
-                    
-                //};
-                
+                $this->load->model('Chart_model');
+
+                $resultCustomers = $this->Chart_model->getCustomerData();
+                        $dataPointsCustomers = [];
+                        foreach ($resultCustomers as $row) {
+                                $dataPointsCustomers[] = [
+                                'date' => $row->date,
+                                'value' => $row->count
+                                ];
+                        }
+                        $jsonChartDataUsers = json_encode($dataPointsCustomers);
+                        $data['jsonChartDataUsers'] = $jsonChartDataUsers;
+
+                $resultRedeem = $this->Chart_model->getRedeemData();
+                        $dataPointsRedeem = [];
+                        foreach ($resultRedeem as $row) {
+                            $dataPointsRedeem[] = [
+                                'date' => $row->date,
+                                'value' => $row->count
+                            ];
+                        }
+                        $jsonChartDataRedeem = json_encode($dataPointsRedeem);
+                        $data['jsonChartDataRedeem'] = $jsonChartDataRedeem;
+
+                $resultVideo = $this->Chart_model->getVideoData();
+                        $dataPointsVideo = [];
+                        foreach ($resultVideo as $row) {
+                                $dataPointsVideo[] = [
+                                        'date' => $row->date,
+                                        'value' => $row->count
+                                ];
+                        }
+                        $jsonChartDataVideo = json_encode($dataPointsVideo);
+                        $data['jsonChartDataVideo'] = $jsonChartDataVideo;
+
+                $resultPayment = $this->Chart_model->getPaymentData();
+                        $dataPointsPayment = [];
+                        foreach ($resultPayment as $row) {
+                        $dataPointsPayment[] = [
+                                'date' => $row->date,
+                                'value' => $row->count
+                        ];
+                        }
+                        $jsonChartDataPayment = json_encode($dataPointsPayment);
+                        $data['jsonChartDataPayment'] = $jsonChartDataPayment;
+
+                // pie chart 
+		$count_consumer_1 = $this->Chart_model->getCountByConsumer('retail');
+		$count_consumer_2 = $this->Chart_model->getCountByConsumer('school');
+		$count_actv_1 = $this->Chart_model->getCountByActivation('sub');
+		$count_actv_2 = $this->Chart_model->getCountByActivation('voc');
+				$data['count_consumer_1'] = $count_consumer_1;
+				$data['count_consumer_2'] = $count_consumer_2;
+				$data['count_actv_1'] = $count_actv_1;
+				$data['count_actv_2'] = $count_actv_2;
+
+                // list admin 
+                $limit = 4;
+                $result = $this->Chart_model->getLimitedAdminsWithGroupTitle($limit);
+                $data['admins'] = $result;
+
+                // jumlah nilai transaksi
+                $result = $this->Chart_model->getTotalPrice();
+                $data['total_price'] = $result ? $result->total_price : 0;
+
+                $totalVideosCount = $this->Chart_model->getTotalVideosCount();
+                $data['totalVideosCount'] = $totalVideosCount;
+
+                $usersCount = $this->Chart_model->getUsersCount();
+                $data['usersCount'] = $usersCount;
+
+                $packageCount = $this->Chart_model->getPackagesCount();
+                $data['packageCount'] = $packageCount;
+
+                $paymentCount = $this->Chart_model->getPaymentCount();
+                $data['paymentCount'] = $paymentCount;
+
+                $data['top_users'] = $this->Chart_model->getTopUsers();
+
+                $this->load->helper('number');
+                $data['top_users_total_price'] = $this->Chart_model->getTopUsersWithTotalPrice();
+
+                $data['user_history'] = $this->Chart_model->getUserHistory();
+        
+
+
 		$data['content'] = 'contents/'.$this->utama.'/view';
-		
-		
 		$this->load->view('layout/main',$data);
+
+               
+        
 	}
         function visitors(){
             $charts='<chart caption="Temperature Monitoring (in degree C) on on 7/9/2013" xaxisname="Time" yaxismaxvalue="100" linecolor="008ee4" anchorsides="3" anchorradius="5" plotgradientcolor=" " bgcolor="FFFFFF" showalternatehgridcolor="0" showplotborder="0" showvalues="0" divlinecolor="666666" showcanvasborder="0" canvasborderalpha="0" >
@@ -75,7 +152,7 @@ class dashboard extends CI_Controller {
             $this->load->view('contents/'.$this->utama.'/tbl_data',$data);
         }
 
-        public function customers() {
+        function chartcustomers() {
                 $this->load->model('Chart_model'); // Load the model
 
                 $resultCustomers = $this->Chart_model->getCustomerData();
@@ -91,7 +168,8 @@ class dashboard extends CI_Controller {
 
                 // Pass data to the view
                 $data['jsonChartDataUsers'] = $jsonChartDataUsers;
-                $this->load->view('dashboard/view', $data);
+                // $this->load->view('contents/'.$this->utama.'/view.php', $data);
+                echo view('contents/'.$this->utama.'/view.php', $data);
         }
 }
 ?>
